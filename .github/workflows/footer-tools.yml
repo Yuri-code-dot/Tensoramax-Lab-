@@ -1,0 +1,61 @@
+name: Inject Lab tools footer
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  footer:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Inject tools footer
+        shell: python
+        run: |
+          from pathlib import Path
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+          marker = 'id="lab-tools-strip"'
+          if marker in s:
+              print('Tools footer already present')
+              raise SystemExit(0)
+
+          css = r'''<style id="lab-tools-style">
+          .lab-tools-strip{margin-top:65px;padding:28px 0 34px;border-top:1px solid #252525;border-bottom:1px solid #252525}.lab-tools-label{font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:22px}.lab-tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.lab-tool{min-height:92px;border:1px solid #242424;background:#090909;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#777;transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}.lab-tool:hover{color:#fff;border-color:#555;transform:translateY(-5px);background:#0c0c0e}.lab-tool img{width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.72;transition:.3s}.lab-tool:hover img{filter:none;opacity:1}.lab-tool span{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.lab-tool:after{content:'↗';position:absolute;right:9px;top:7px;font:11px 'DM Mono';color:#444}.lab-tools-note{margin-top:16px;color:#555;font:9px 'DM Mono';text-transform:uppercase;letter-spacing:.08em}@media(max-width:800px){.lab-tools-strip{margin-top:45px}.lab-tools-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lab-tool{min-height:82px}}
+          </style>'''
+
+          html = r'''<div class="lab-tools-strip" id="lab-tools-strip">
+            <div class="lab-tools-label">Tools used by TensoraMax Lab</div>
+            <div class="lab-tools-grid">
+              <a class="lab-tool" href="https://github.com/Yuri-code-dot/Tensoramax-Lab-" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></a>
+              <a class="lab-tool" href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kaggle/ffffff" alt="Kaggle"><span>Kaggle</span></a>
+              <a class="lab-tool" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="Hugging Face"><span>Hugging Face</span></a>
+              <a class="lab-tool" href="https://railway.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="Railway"><span>Railway</span></a>
+              <a class="lab-tool" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"><span>Vercel</span></a>
+              <a class="lab-tool" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/supabase/ffffff" alt="Supabase"><span>Supabase</span></a>
+            </div>
+            <div class="lab-tools-note">Infrastructure, research platforms, deployment and data systems used across the Lab.</div>
+          </div>'''
+
+          footer = s.find('</footer>')
+          if footer == -1:
+              print('No footer found')
+              raise SystemExit(1)
+          s = s[:footer] + css + html + s[footer:]
+          p.write_text(s, encoding='utf-8')
+      - name: Commit footer patch
+        run: |
+          if git diff --quiet; then
+            echo "No changes"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git commit -m "Add tools used by Lab footer"
+          git push
