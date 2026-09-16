@@ -37,39 +37,17 @@ footer{position:relative;overflow:hidden;border-top:1px solid #292929;padding:12
 @media(max-width:800px){#seasonal-environment{top:74px;right:14px;padding:8px 9px;font-size:8px}.season-snowflake{color:rgba(255,255,255,.62)}}
 @media(prefers-reduced-motion:reduce){#seasonal-snow{display:none}}
 </style>
-<style id="tensoramax-liquid-ink-css">
-/* TENSORAMAX_LIQUID_INK_V1 */
-#lab-ink{position:fixed;inset:0;z-index:120;pointer-events:none;overflow:hidden;opacity:0;visibility:hidden;background:#07000a;transition:opacity .2s ease,visibility .2s ease}
-#lab-ink.is-active{opacity:1;visibility:visible;pointer-events:auto;touch-action:none}
-#lab-ink-canvas{position:absolute;inset:0;width:100%;height:100%}
-#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.45);opacity:0;transition:opacity .3s;white-space:nowrap}
-#lab-ink.is-active #lab-ink-hint{opacity:1}
-#lab-ink-rip{position:absolute;width:90px;height:90px;border:1px solid rgba(255,255,255,.22);border-radius:50%;transform:translate(-50%,-50%) scale(.25);opacity:0;mix-blend-mode:screen;pointer-events:none}
-@media(max-width:800px){#lab-ink-hint{bottom:5vh;font-size:8px}}
-@media(prefers-reduced-motion:reduce){#lab-ink{display:none!important}}
-</style>
-<style id="tensoramax-liquid-ink-css">
-/* TENSORAMAX_LIQUID_INK_V2 */
-#lab-ink{position:fixed;inset:0;z-index:110;pointer-events:none;overflow:hidden;opacity:0;visibility:hidden;background:#07000a;transition:opacity .18s ease,visibility .18s ease}
-#lab-ink.is-active{opacity:1;visibility:visible;pointer-events:auto;touch-action:none}
-#lab-ink-canvas{position:absolute;inset:0;width:100%;height:100%}
-#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;transition:opacity .25s;white-space:nowrap}
-#lab-ink.is-active #lab-ink-hint{opacity:1}
-#lab-ink-rip{position:absolute;width:90px;height:90px;border:1px solid rgba(255,255,255,.24);border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;mix-blend-mode:screen;pointer-events:none}
-#seasonal-environment{z-index:190!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;opacity:.72}
-@media(max-width:800px){#lab-ink-hint{bottom:5vh;font-size:8px}#seasonal-environment{top:68px!important;right:10px!important;padding:6px 7px!important;font-size:7px!important;gap:7px!important;opacity:.6}}
-@media(prefers-reduced-motion:reduce){#lab-ink{display:none!important}}
-</style>
-<style id="tensoramax-liquid-ink-v3-css">
-/* TENSORAMAX_LIQUID_INK_V3 */
+<style id="tensoramax-liquid-ink-final-css">
+/* TENSORAMAX_LIQUID_INK_FINAL */
 #lab-ink{position:fixed;inset:0;z-index:110;pointer-events:none;overflow:hidden;opacity:0;visibility:hidden;background:#07000a;transition:opacity .16s ease,visibility .16s ease;touch-action:none}
-#lab-ink.is-active{opacity:1;visibility:visible;pointer-events:auto}
+#lab-ink.is-active{opacity:1;visibility:visible;pointer-events:auto;touch-action:none}
 #lab-ink-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;transition:opacity .2s;white-space:nowrap}
+#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none}
 #lab-ink.is-active #lab-ink-hint{opacity:1}
 #lab-ink-rip{position:absolute;width:90px;height:90px;border:1px solid rgba(255,255,255,.24);border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;mix-blend-mode:screen;pointer-events:none}
-#seasonal-environment{z-index:190!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;opacity:.62!important;transform:scale(.76);transform-origin:top right}
-@media(max-width:800px){#lab-ink-hint{bottom:5vh;font-size:8px}#seasonal-environment{top:67px!important;right:8px!important;padding:5px 6px!important;font-size:7px!important;gap:6px!important;transform:scale(.72);opacity:.48!important}}
+#seasonal-environment{z-index:190!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;opacity:.58!important;pointer-events:none!important;transform:scale(.72);transform-origin:top right}
+#seasonal-environment button{pointer-events:auto!important}
+@media(max-width:800px){#lab-ink-hint{bottom:5vh;font-size:8px}#seasonal-environment{top:67px!important;right:8px!important;padding:5px 6px!important;font-size:7px!important;gap:6px!important;transform:scale(.72);opacity:.45!important}}
 @media(prefers-reduced-motion:reduce){#lab-ink{display:none!important}}
 </style>
 </head>
@@ -197,24 +175,137 @@ addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-inn
 </script>
 
 
-<script id="tensoramax-liquid-ink-v3-js">
+<script id="tensoramax-liquid-ink-final-js">
 (()=>{
-  const layer=document.getElementById('lab-ink'),canvas=document.getElementById('lab-ink-canvas'),rip=document.getElementById('lab-ink-rip');
-  if(!layer||!canvas)return;const ctx=canvas.getContext('2d');if(!ctx)return;
-  let w=0,h=0,dpr=1,active=false,armed=false,dragging=false,startY=0,lastY=0,progress=0,target=0,velocity=0,closing=false;
-  const blobs=Array.from({length:30},(_,i)=>({x:(i/29)*1.1-.05,r:.018+Math.random()*.05,phase:Math.random()*6.28,speed:.35+Math.random()*.8}));
-  function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;canvas.style.width=w+'px';canvas.style.height=h+'px';ctx.setTransform(dpr,0,0,dpr,0,0)}
-  addEventListener('resize',resize,{passive:true});resize();
-  function open(y){active=true;armed=false;dragging=true;closing=false;startY=lastY=y;progress=0;target=0;velocity=0;layer.classList.add('is-active');layer.setAttribute('aria-hidden','false')}
-  function close(){active=false;armed=false;dragging=false;closing=false;layer.classList.remove('is-active');layer.setAttribute('aria-hidden','true');if(rip)rip.style.opacity='0'}
-  function finish(){if(!active||closing)return;closing=true;dragging=false;if(progress>.68){progress=target=1.14;setTimeout(close,560)}else{target=0;setTimeout(close,300)}}
-  function move(y){if(!dragging)return;velocity=y-lastY;lastY=y;progress=Math.max(0,Math.min(1.14,(y-startY)/(h*.86)));target=progress;if(rip){rip.style.left='50%';rip.style.top=Math.max(0,Math.min(100,progress*100))+'%';rip.style.opacity=Math.min(.45,.08+progress*.4);rip.style.transform=`translate(-50%,-50%) scale(${.25+progress*1.9})`}}
-  function paint(t){if(!active)return;ctx.clearRect(0,0,w,h);const edge=Math.max(-.03,Math.min(1.16,target));ctx.save();ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w,0);const n=96;for(let i=0;i<=n;i++){const nx=i/n;let wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;for(const b of blobs)wave+=Math.exp(-Math.pow((nx-b.x)/(b.r*2.7),2))*b.r*(.25+.75*Math.sin(t*.001*b.speed+b.phase));ctx.lineTo(nx*w,(edge+wave)*h)}ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();const g=ctx.createLinearGradient(0,0,0,h);g.addColorStop(0,'#e01d5d');g.addColorStop(.5,'#b80e40');g.addColorStop(1,'#65082b');ctx.fillStyle=g;ctx.shadowColor='rgba(224,29,93,.32)';ctx.shadowBlur=48;ctx.fill();ctx.restore();if(edge>.04){ctx.save();ctx.globalAlpha=.3;ctx.strokeStyle='#ff79a4';ctx.lineWidth=1;ctx.beginPath();for(let i=0;i<=n;i++){const nx=i/n;const wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;ctx.lineTo(nx*w,(edge+wave)*h)}ctx.stroke();ctx.restore()}}
-  function loop(t){target+=(progress-target)*.22;paint(t);requestAnimationFrame(loop)}
-  addEventListener('pointerdown',e=>{if(e.target.closest('a,button,input,textarea,select'))return;armed=true;dragging=true;startY=lastY=e.clientY},{passive:true});
-  addEventListener('pointermove',e=>{if(!armed&&!active)return;const dy=e.clientY-startY;const dx=e.clientX-(innerWidth/2);if(!active&&dy>24&&Math.abs(dy)>Math.abs(dx)*.55){open(startY);move(e.clientY)}else if(active){e.preventDefault();move(e.clientY)}},{passive:false});
-  addEventListener('pointerup',()=>{if(active)finish();else{armed=false;dragging=false}},{passive:true});
-  addEventListener('pointercancel',close,{passive:true});
+  const layer=document.getElementById('lab-ink');
+  const canvas=document.getElementById('lab-ink-canvas');
+  const rip=document.getElementById('lab-ink-rip');
+  if(!layer||!canvas)return;
+  const ctx=canvas.getContext('2d');
+  if(!ctx)return;
+
+  let w=0,h=0,dpr=1;
+  let active=false,armed=false,dragging=false,closing=false;
+  let startY=0,lastY=0,startX=0,progress=0,target=0,velocity=0;
+  let touchMode=false;
+  const blobs=Array.from({length:34},(_,i)=>({x:(i/33)*1.1-.05,r:.018+Math.random()*.05,phase:Math.random()*6.28,speed:.35+Math.random()*.8}));
+
+  function resize(){
+    dpr=Math.min(window.devicePixelRatio||1,2);
+    w=innerWidth;h=innerHeight;
+    canvas.width=w*dpr;canvas.height=h*dpr;
+    canvas.style.width=w+'px';canvas.style.height=h+'px';
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  addEventListener('resize',resize,{passive:true});
+  resize();
+
+  function openInk(y,x){
+    active=true;armed=false;dragging=true;closing=false;
+    startY=lastY=y;startX=x;progress=0;target=0;velocity=0;
+    layer.classList.add('is-active');
+    layer.setAttribute('aria-hidden','false');
+  }
+  function closeInk(){
+    active=false;armed=false;dragging=false;closing=false;touchMode=false;
+    layer.classList.remove('is-active');
+    layer.setAttribute('aria-hidden','true');
+    if(rip)rip.style.opacity='0';
+  }
+  function finish(){
+    if(!active||closing)return;
+    closing=true;dragging=false;
+    if(progress>.52){
+      progress=target=1.14;
+      setTimeout(closeInk,520);
+    }else{
+      target=0;
+      setTimeout(closeInk,260);
+    }
+  }
+  function move(y){
+    if(!dragging)return;
+    velocity=y-lastY;lastY=y;
+    progress=Math.max(0,Math.min(1.14,(y-startY)/(h*.86)));
+    target=progress;
+    if(rip){
+      rip.style.left='50%';
+      rip.style.top=Math.max(0,Math.min(100,progress*100))+'%';
+      rip.style.opacity=Math.min(.45,.08+progress*.4);
+      rip.style.transform=`translate(-50%,-50%) scale(${.25+progress*1.9})`;
+    }
+  }
+  function paint(t){
+    if(!active)return;
+    ctx.clearRect(0,0,w,h);
+    const edge=Math.max(-.03,Math.min(1.16,target));
+    ctx.save();ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w,0);
+    const n=110;
+    for(let i=0;i<=n;i++){
+      const nx=i/n;
+      let wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;
+      for(const b of blobs)wave+=Math.exp(-Math.pow((nx-b.x)/(b.r*2.7),2))*b.r*(.25+.75*Math.sin(t*.001*b.speed+b.phase));
+      ctx.lineTo(nx*w,(edge+wave)*h);
+    }
+    ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();
+    const g=ctx.createLinearGradient(0,0,0,h);
+    g.addColorStop(0,'#e01d5d');g.addColorStop(.5,'#b80e40');g.addColorStop(1,'#65082b');
+    ctx.fillStyle=g;ctx.shadowColor='rgba(224,29,93,.32)';ctx.shadowBlur=48;ctx.fill();ctx.restore();
+    if(edge>.04){
+      ctx.save();ctx.globalAlpha=.3;ctx.strokeStyle='#ff79a4';ctx.lineWidth=1;ctx.beginPath();
+      for(let i=0;i<=n;i++){const nx=i/n;const wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;ctx.lineTo(nx*w,(edge+wave)*h)}
+      ctx.stroke();ctx.restore();
+    }
+  }
+  function loop(t){
+    target+=(progress-target)*.22;
+    paint(t);
+    requestAnimationFrame(loop);
+  }
+
+  function ignored(el){return !!el?.closest?.('a,button,input,textarea,select,summary,[data-no-ink]')}
+
+  addEventListener('touchstart',e=>{
+    if(e.touches.length!==1||ignored(e.target))return;
+    const t=e.touches[0];
+    touchMode=true;armed=true;dragging=false;
+    startX=t.clientX;startY=lastY=t.clientY;
+  },{passive:false,capture:true});
+
+  addEventListener('touchmove',e=>{
+    if(!touchMode||!armed||e.touches.length!==1)return;
+    const t=e.touches[0];
+    const dy=t.clientY-startY,dx=t.clientX-startX;
+    if(!active&&dy>8&&Math.abs(dy)>Math.abs(dx)*.65){
+      e.preventDefault();
+      openInk(startY,startX);
+      move(t.clientY);
+    }else if(active){
+      e.preventDefault();
+      move(t.clientY);
+    }
+  },{passive:false,capture:true});
+
+  addEventListener('touchend',e=>{
+    if(!touchMode)return;
+    if(active)finish();
+    else{armed=false;dragging=false;touchMode=false}
+  },{passive:false,capture:true});
+  addEventListener('touchcancel',()=>{if(active)closeInk();else{armed=false;dragging=false;touchMode=false}},{passive:true,capture:true});
+
+  addEventListener('pointerdown',e=>{
+    if(e.pointerType==='touch'||ignored(e.target))return;
+    armed=true;dragging=false;startX=e.clientX;startY=lastY=e.clientY;
+  },{passive:true});
+  addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch'||(!armed&&!active))return;
+    const dy=e.clientY-startY,dx=e.clientX-startX;
+    if(!active&&dy>10&&Math.abs(dy)>Math.abs(dx)*.55){openInk(startY,startX);move(e.clientY)}
+    else if(active){e.preventDefault();move(e.clientY)}
+  },{passive:false});
+  addEventListener('pointerup',e=>{if(e.pointerType==='touch')return;if(active)finish();else{armed=false;dragging=false}},{passive:true});
+  addEventListener('pointercancel',e=>{if(e.pointerType==='touch')return;closeInk()},{passive:true});
+
   requestAnimationFrame(loop);
 })();
 </script>
