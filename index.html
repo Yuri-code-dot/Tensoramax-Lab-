@@ -8,7 +8,7 @@
 <title>TensoraMax Lab — Build Beyond</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
-:root{--bg:#050505;--fg:#f1f0ec;--muted:#8a8884;--line:#252525;--purple:#8b5cf6;--violet:#b58cff;--ease:cubic-bezier(.16,1,.3,1);--mx:50vw;--my:50vh}
+:root{--bg:#050505;--fg:#f1f0ec;--line:#252525;--purple:#8b5cf6;--ease:cubic-bezier(.16,1,.3,1);--mx:50vw;--my:50vh}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--fg);font-family:'Space Grotesk',system-ui,sans-serif;overflow-x:hidden;cursor:none}a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;background:none;border:0;cursor:none}.mono{font-family:'DM Mono',monospace}.noise{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.045;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E")}
 .cursor{position:fixed;left:0;top:0;width:18px;height:18px;border:1px solid var(--fg);border-radius:50%;z-index:100;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s var(--ease),height .25s var(--ease),background .25s}.cursor.big{width:62px;height:62px;background:#fff}.cursor-dot{position:fixed;width:3px;height:3px;border-radius:50%;background:#fff;z-index:101;pointer-events:none;transform:translate(-50%,-50%);mix-blend-mode:difference}
 #field{position:fixed;inset:0;pointer-events:none;z-index:0;background:radial-gradient(circle at var(--mx) var(--my),rgba(139,92,246,.12),transparent 28vw),radial-gradient(circle at 20% 70%,rgba(139,92,246,.05),transparent 35vw)}.grid{position:fixed;inset:-20%;opacity:.12;background-image:linear-gradient(#fff 1px,transparent 1px),linear-gradient(90deg,#fff 1px,transparent 1px);background-size:80px 80px;transform:perspective(700px) rotateX(60deg) translateY(30%);transform-origin:center bottom;mask-image:linear-gradient(to top,black,transparent 65%);z-index:0}
@@ -19,50 +19,22 @@ section{padding:150px 5vw;position:relative}.section-head{display:flex;justify-c
 .experiment{min-height:90vh;display:grid;grid-template-columns:1fr 1fr;gap:8vw;align-items:center}.experiment-copy h2{font-size:clamp(55px,8vw,120px);line-height:.82;letter-spacing:-.08em;margin:0 0 40px}.experiment-copy p{color:#888;max-width:480px;line-height:1.7}.terminal{border:1px solid #333;background:#080808;min-height:500px;padding:24px;box-shadow:0 30px 100px rgba(0,0,0,.45);transform:rotate(1.5deg)}.terminal-head{display:flex;gap:7px;margin-bottom:30px}.terminal-head i{width:8px;height:8px;border-radius:50%;background:#333}.terminal pre{font:12px/1.8 'DM Mono';color:#aaa;white-space:pre-wrap}.terminal .p{color:var(--purple)}.terminal .g{color:#ddd}.terminal .dim{color:#555}.terminal .blink{animation:blink 1s steps(2) infinite}@keyframes blink{50%{opacity:0}}
 .archive{border-top:1px solid var(--line)}.archive-row{display:grid;grid-template-columns:90px 1fr 180px;align-items:center;gap:30px;padding:24px 0;border-bottom:1px solid var(--line);transition:.3s}.archive-row:hover{padding-left:25px;background:#090909}.archive-row .id{font:10px 'DM Mono';color:#555}.archive-row h3{margin:0;font-size:clamp(22px,3vw,42px);letter-spacing:-.04em;font-weight:400}.archive-row p{margin:4px 0 0;color:#666;font-size:12px}.archive-row .date{font:10px 'DM Mono';color:#666;text-align:right}
 .signal{min-height:80vh;display:flex;align-items:center;justify-content:center;text-align:center;overflow:hidden}.signal h2{font-size:clamp(65px,13vw,190px);line-height:.76;letter-spacing:-.09em;margin:0;position:relative}.signal h2 span{display:block;color:transparent;-webkit-text-stroke:1px #666}.signal h2 b{color:var(--purple);font-weight:500}.signal .floating{position:absolute;font:10px 'DM Mono';color:#555;pointer-events:none}.f1{top:20%;left:12%;animation:float 6s ease-in-out infinite}.f2{bottom:17%;right:12%;animation:float 8s ease-in-out infinite reverse}.f3{top:38%;right:7%;animation:float 5s ease-in-out infinite}@keyframes float{50%{transform:translateY(-25px) translateX(15px)}}
-footer{position:relative;overflow:hidden;border-top:1px solid #292929;padding:120px 5vw 35px;background:#070707}.footer-marquee{font-size:clamp(75px,15vw,220px);line-height:.72;letter-spacing:-.09em;white-space:nowrap;color:#161616;position:absolute;top:30px;left:-2%;pointer-events:none;animation:footerMove 22s linear infinite}@keyframes footerMove{to{transform:translateX(-30%)}}.footer-content{position:relative;z-index:2;min-height:500px;display:flex;flex-direction:column;justify-content:space-between}.footer-title{font-size:clamp(45px,7vw,100px);letter-spacing:-.07em;max-width:800px}.footer-title span{color:var(--purple)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;border-top:1px solid #252525;padding-top:25px}.footer-grid h4{font:10px 'DM Mono';color:#555;text-transform:uppercase;margin:0 0 15px}.footer-grid a,.footer-grid p{font-size:13px;color:#999;margin:5px 0;display:block}.footer-grid a:hover{color:#fff}.copyright{border-top:1px solid #252525;margin-top:50px;padding-top:15px;display:flex;justify-content:space-between;color:#555;font:9px 'DM Mono';text-transform:uppercase}
+footer{position:relative;overflow:hidden;border-top:1px solid #292929;padding:120px 5vw 35px;background:#070707}.footer-marquee{font-size:clamp(75px,15vw,220px);line-height:.72;letter-spacing:-.09em;white-space:nowrap;color:#161616;position:absolute;top:30px;left:-2%;pointer-events:none;animation:footerMove 22s linear infinite}@keyframes footerMove{to{transform:translateX(-30%)}}.footer-content{position:relative;z-index:2;min-height:500px;display:flex;flex-direction:column;justify-content:space-between}.footer-title{font-size:clamp(45px,7vw,100px);letter-spacing:-.07em;max-width:800px}.footer-title span{color:var(--purple)}.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:30px;border-top:1px solid #252525;padding-top:25px}.footer-grid h4{font:10px 'DM Mono';color:#555;text-transform:uppercase;margin:0 0 15px}.footer-grid a,.footer-grid p{font-size:13px;color:#999;margin:5px 0;display:block}.footer-grid a:hover{color:#fff}.copyright{border-top:1px solid #252525;margin-top:50px;padding-top:15px;display:flex;justify-content:space-between;color:#555;font:9px 'DM Mono';text-transform:uppercase}.lab-tools-strip{margin-top:65px;padding:28px 0 34px;border-top:1px solid #252525;border-bottom:1px solid #252525}.lab-tools-label{font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:22px}.lab-tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.lab-tool{min-height:92px;border:1px solid #242424;background:#090909;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#777;transition:.35s var(--ease);position:relative;overflow:hidden}.lab-tool:hover{color:#fff;border-color:#555;transform:translateY(-5px);background:#0c0c0e}.lab-tool img{width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.72}.lab-tool:hover img{filter:none;opacity:1}.lab-tool span{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.lab-tool:after{content:'↗';position:absolute;right:9px;top:7px;font:11px 'DM Mono';color:#444}.lab-tools-note{margin-top:16px;color:#555;font:9px 'DM Mono';text-transform:uppercase;letter-spacing:.08em}
 .reveal{opacity:0;transform:translateY(60px);transition:opacity 1s var(--ease),transform 1s var(--ease)}.reveal.in{opacity:1;transform:none}.loader{position:fixed;inset:0;z-index:200;background:#050505;display:flex;align-items:flex-end;padding:35px;transition:transform 1s var(--ease)}.loader.done{transform:translateY(-100%)}.loader .loadtext{font:11px 'DM Mono';color:#777}.loader .loadnum{font-size:clamp(70px,14vw,180px);letter-spacing:-.08em;line-height:.7;color:#eee}.scan{position:fixed;left:0;top:0;width:100%;height:1px;background:var(--purple);z-index:80;transform-origin:left;box-shadow:0 0 15px var(--purple)}
-@media(max-width:800px){body{cursor:auto}.cursor,.cursor-dot{display:none}nav{height:62px;padding:0 16px}.navlinks{display:none}.status{font-size:8px}.hero{padding:110px 6vw 80px;min-height:92svh}.hero h1{font-size:clamp(70px,20vw,140px)}.orb{width:75vw;height:75vw;right:-20vw;top:32%;opacity:.5}.hero-sub{font-size:14px;margin-top:35px}.hero-meta{gap:16px;flex-wrap:wrap}.marquee .track{font-size:35px;padding:11px 0}.section-head{display:block}.section-head p{margin-top:25px}.project-space{min-height:1650px}.project{position:absolute!important;width:78vw}.project:nth-child(1){left:0;top:1%}.project:nth-child(2){right:0;top:21%}.project:nth-child(3){left:7%;top:41%}.project:nth-child(4){right:0;top:61%}.project:nth-child(5){left:5%;top:81%}.project h3{font-size:30px;margin-top:45px}.experiment{grid-template-columns:1fr;gap:60px}.terminal{min-height:390px;transform:none}.archive-row{grid-template-columns:45px 1fr}.archive-row .date{display:none}.signal{min-height:70vh}.footer-grid{grid-template-columns:1fr 1fr}.copyright{display:block;line-height:2}.copyright span{display:block}.grid{background-size:50px 50px}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
-</style>
-<style id="tensoramax-seasonal-css">
-/* TENSORA_SEASONAL_ENVIRONMENT */
-#seasonal-environment{position:fixed;top:88px;right:28px;z-index:190;display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid rgba(255,255,255,.12);background:rgba(5,5,5,.62);backdrop-filter:blur(14px);font:9px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#777;transition:border-color .25s,opacity .25s}
-#seasonal-environment:hover{border-color:rgba(255,255,255,.28)}
-#seasonal-environment .season-value{color:#eee}
-#seasonal-environment button{padding:3px 0;color:#777;letter-spacing:.1em}
-#seasonal-environment button:hover{color:#fff}
-#seasonal-environment .effect-state{color:var(--purple);min-width:19px;text-align:center}
-#seasonal-snow{position:fixed;inset:0;z-index:35;pointer-events:none;overflow:hidden}
-.season-snowflake{position:absolute;top:-30px;color:rgba(255,255,255,.72);font-family:Arial,sans-serif;line-height:1;will-change:transform;filter:drop-shadow(0 0 7px rgba(255,255,255,.12))}
-@media(max-width:800px){#seasonal-environment{top:74px;right:14px;padding:8px 9px;font-size:8px}.season-snowflake{color:rgba(255,255,255,.62)}}
-@media(prefers-reduced-motion:reduce){#seasonal-snow{display:none}}
-</style>
-<style id="tensoramax-liquid-ink-final-css">
-/* TENSORAMAX_LIQUID_INK_FINAL */
-#lab-ink{position:fixed;inset:0;z-index:110;pointer-events:none;overflow:hidden;opacity:0;visibility:hidden;background:#07000a;transition:opacity .16s ease,visibility .16s ease;touch-action:none}
-#lab-ink.is-active{opacity:1;visibility:visible;pointer-events:auto;touch-action:none}
-#lab-ink-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.5);opacity:0;transition:opacity .2s;white-space:nowrap;pointer-events:none}
-#lab-ink.is-active #lab-ink-hint{opacity:1}
-#lab-ink-rip{position:absolute;width:90px;height:90px;border:1px solid rgba(255,255,255,.24);border-radius:50%;transform:translate(-50%,-50%) scale(.2);opacity:0;mix-blend-mode:screen;pointer-events:none}
-#seasonal-environment{z-index:190!important;background:transparent!important;backdrop-filter:none!important;box-shadow:none!important;opacity:.58!important;pointer-events:none!important;transform:scale(.72);transform-origin:top right}
-#seasonal-environment button{pointer-events:auto!important}
-@media(max-width:800px){#lab-ink-hint{bottom:5vh;font-size:8px}#seasonal-environment{top:67px!important;right:8px!important;padding:5px 6px!important;font-size:7px!important;gap:6px!important;transform:scale(.72);opacity:.45!important}}
-@media(prefers-reduced-motion:reduce){#lab-ink{display:none!important}}
+#seasonal-environment{position:fixed;top:88px;right:28px;z-index:190;display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid rgba(255,255,255,.12);background:rgba(5,5,5,.58);backdrop-filter:blur(14px);font:9px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#777}#seasonal-environment .season-value{color:#eee}#seasonal-environment button{padding:3px 0;color:#777;letter-spacing:.1em}#seasonal-environment .effect-state{color:var(--purple);min-width:19px;text-align:center}
+#seasonal-snow{position:fixed;inset:0;z-index:35;pointer-events:none;overflow:hidden}.season-snowflake{position:absolute;top:-30px;color:rgba(255,255,255,.72);font-family:Arial,sans-serif;line-height:1;will-change:transform;filter:drop-shadow(0 0 7px rgba(255,255,255,.12))}
+/* GPU LIQUID TRANSITION: no SVG morphing, no polygon animation. */
+#lab-ink{position:fixed;inset:0;z-index:180;pointer-events:none;visibility:hidden;opacity:0;background:transparent;transition:opacity .2s ease;overflow:hidden}#lab-ink.is-active{visibility:visible;opacity:1;pointer-events:auto}#lab-ink-canvas{position:absolute;inset:0;width:100%;height:100%;display:block}#lab-ink-hint{position:absolute;left:50%;bottom:8vh;transform:translateX(-50%);font:9px 'DM Mono',monospace;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.58);pointer-events:none;white-space:nowrap;mix-blend-mode:screen}#lab-ink-progress{position:absolute;left:0;top:0;width:2px;height:100%;background:rgba(255,255,255,.55);transform-origin:top;transform:scaleY(0);pointer-events:none;opacity:.5}
+@media(max-width:800px){body{cursor:auto}.cursor,.cursor-dot{display:none}nav{height:62px;padding:0 16px}.navlinks{display:none}.status{font-size:8px}.hero{padding:110px 6vw 80px;min-height:92svh}.hero h1{font-size:clamp(70px,20vw,140px)}.orb{width:75vw;height:75vw;right:-20vw;top:32%;opacity:.5}.hero-sub{font-size:14px;margin-top:35px}.hero-meta{gap:16px;flex-wrap:wrap}.marquee .track{font-size:35px;padding:11px 0}.section-head{display:block}.section-head p{margin-top:25px}.project-space{min-height:1650px}.project{position:absolute!important;width:78vw}.project:nth-child(1){left:0;top:1%}.project:nth-child(2){right:0;top:21%}.project:nth-child(3){left:7%;top:41%}.project:nth-child(4){right:0;top:61%}.project:nth-child(5){left:5%;top:81%}.project h3{font-size:30px;margin-top:45px}.experiment{grid-template-columns:1fr;gap:60px}.terminal{min-height:390px;transform:none}.archive-row{grid-template-columns:45px 1fr}.archive-row .date{display:none}.signal{min-height:70vh}.footer-grid{grid-template-columns:1fr 1fr}.copyright{display:block;line-height:2}.copyright span{display:block}.grid{background-size:50px 50px}.lab-tools-strip{margin-top:45px}.lab-tools-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lab-tool{min-height:82px}#seasonal-environment{top:68px;right:8px;padding:5px 7px;font-size:7px;gap:6px;transform:scale(.78);transform-origin:top right;opacity:.62}#lab-ink-hint{bottom:5vh;font-size:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}#lab-ink{display:none!important}}
 </style>
 </head>
 <body>
 <div class="loader" id="loader"><div><div class="loadtext">INITIALIZING LAB ENVIRONMENT</div><div class="loadnum" id="loadnum">00</div></div></div>
 <div class="noise"></div><div id="field"></div><div class="grid"></div><div class="scan" id="scan"></div><div class="cursor" id="cursor"></div><div class="cursor-dot" id="dot"></div>
 <nav><a class="brand" href="#top">TENSORA<span>MAX</span> LAB</a><div class="navlinks"><a href="#projects">Projects</a><a href="#research">Research</a><a href="#archive">Archive</a><a href="#contact">Contact</a></div><div class="status"><i></i>SYSTEM ONLINE</div></nav>
-<div id="seasonal-environment" aria-label="Current Lab season and seasonal effects">
-  <span>SEASON</span><span class="season-value">WINTER</span><span aria-hidden="true">/</span>
-  <span>EFFECT</span><button id="season-effect-toggle" type="button" aria-pressed="true"><span class="effect-state">ON</span></button>
-</div>
-<div id="seasonal-snow" aria-hidden="true"></div>
-
-
-<div id="lab-ink" aria-hidden="true"><canvas id="lab-ink-canvas"></canvas><div id="lab-ink-rip"></div><div id="lab-ink-hint">DRAG DOWN · LIQUID STATE</div></div>
+<div id="seasonal-environment"><span>SEASON</span><span class="season-value">WINTER</span><span>/</span><span>EFFECT</span><button id="season-effect-toggle" aria-pressed="true"><span class="effect-state">ON</span></button></div><div id="seasonal-snow" aria-hidden="true"></div>
+<div id="lab-ink" aria-hidden="true"><canvas id="lab-ink-canvas"></canvas><div id="lab-ink-progress"></div><div id="lab-ink-hint">DRAG DOWN · LIQUID STATE</div></div>
 <main id="top">
 <section class="hero"><div class="hero-copy"><div class="eyebrow">Independent digital laboratory <b>/ 2026</b></div><h1>BUILD<br><span class="outline">BEYOND</span><br><span class="purple">KNOWN.</span></h1><p class="hero-sub">Software, language models, experiments, literature, tools and ideas that are better built than left in a notebook.</p><div class="hero-meta"><span>STATUS <strong>ACTIVE</strong></span><span>MODE <strong>EXPERIMENTAL</strong></span><span>STACK <strong>LLM / CODE / WEB</strong></span></div></div><div class="orb"></div></section>
 <div class="marquee"><div class="track">SYSTEMS <span class="dim">/</span> LLMs <span class="violet">/</span> EXPERIMENTS <span class="dim">/</span> LITERATURE <span class="violet">/</span> SOFTWARE <span class="dim">/</span> AGENTS <span class="violet">/</span> SYSTEMS <span class="dim">/</span> LLMs <span class="violet">/</span> EXPERIMENTS <span class="dim">/</span> LITERATURE <span class="violet">/</span> SOFTWARE <span class="dim">/</span> AGENTS <span class="violet">/</span></div></div>
@@ -70,8 +42,8 @@ footer{position:relative;overflow:hidden;border-top:1px solid #292929;padding:12
 <a class="project tilt" href="#archive"><span class="num">01 / LIBRARY</span><h3>English Literature Library</h3><p>A research-focused literature system for books, authors, periods, genres, curriculum material and reading.</p><div class="bottom"><span>PRODUCTION SYSTEM</span><span class="arrow">↗</span></div></a>
 <a class="project tilt" href="#archive"><span class="num">02 / STUDIO</span><h3>TensoraMax Studio</h3><p>A broader development environment for LLM tooling, agents, datasets, code experiments and interactive software.</p><div class="bottom"><span>ACTIVE BUILD</span><span class="arrow">↗</span></div></a>
 <a class="project tilt" href="#archive"><span class="num">03 / CODEX</span><h3>Yuri Codex</h3><p>A personal technical knowledge system collecting experiments, notes, patterns, tools and discoveries.</p><div class="bottom"><span>LAB SYSTEM</span><span class="arrow">↗</span></div></a>
-<a class="project tilt" href="#archive"><span class="num">04 / TXB</span><h3>TXB</h3><p>A failed local-first LLM character and agent experiment. The prototype pushed a small model, constrained hardware and an oversized ambition into the same pipeline. It broke under its own constraints: limited model capacity, weak long-context retention, brittle instruction following, and too much orchestration for too little compute. It failed as a dependable system, but the failure exposed the engineering limits worth studying.</p><div class="bottom"><span>FAILED EXPERIMENT / ARCHIVED</span><span class="arrow">↗</span></div></a>
-<a class="project tilt" href="#archive"><span class="num">05 / TSC</span><h3>TSC</h3><p>TensoraMax Lab's in-house LLM, built exclusively for internal Lab work, testing, orchestration and controlled agentic workflows. Not a public assistant. Not a product demo. A private research instrument.</p><div class="bottom"><span>INTERNAL LLM / LAB ONLY</span><span class="arrow">↗</span></div></a>
+<a class="project tilt" href="#archive"><span class="num">04 / TXB</span><h3>TXB</h3><p>A failed local-first LLM character and agent experiment. The prototype pushed a small model, constrained hardware and an oversized ambition into the same pipeline.</p><div class="bottom"><span>FAILED EXPERIMENT / ARCHIVED</span><span class="arrow">↗</span></div></a>
+<a class="project tilt" href="#archive"><span class="num">05 / TSC</span><h3>TSC</h3><p>TensoraMax Lab's in-house LLM for internal Lab work, testing, orchestration and controlled agentic workflows.</p><div class="bottom"><span>INTERNAL LLM / LAB ONLY</span><span class="arrow">↗</span></div></a>
 </div></section>
 <div class="marquee reverse"><div class="track">FAILED BUILDS <span class="violet">/</span> RECOVERED SIGNALS <span class="dim">/</span> INTERNAL MODELS <span class="violet">/</span> AGENTIC SYSTEMS <span class="dim">/</span> STRANGE IDEAS <span class="violet">/</span> FAILED BUILDS <span class="dim">/</span> RECOVERED SIGNALS <span class="violet">/</span> INTERNAL MODELS <span class="dim">/</span> AGENTIC SYSTEMS <span class="violet">/</span></div></div>
 <section id="research"><div class="experiment"><div class="experiment-copy reveal"><div class="eyebrow">RESEARCH / 00X</div><h2>BREAK<br>THINGS.<br><span style="color:var(--purple)">LEARN.</span></h2><p>The Lab treats failed prototypes as technical evidence. Models get constrained. Systems get stressed. Agents get orchestrated. When something breaks, the interesting part is usually the failure boundary.</p></div><div class="terminal reveal"><div class="terminal-head"><i></i><i></i><i></i></div><pre><span class="dim">$</span> <span class="g">lab status --verbose</span>
@@ -92,221 +64,35 @@ footer{position:relative;overflow:hidden;border-top:1px solid #292929;padding:12
 <span class="g">status:</span> archived for study
 
 <span class="dim">$</span> <span class="blink">_</span></pre></div></div></section>
-<section id="archive"><div class="section-head reveal"><h2>ARCHIVE</h2><p>Nothing gets erased just because it failed. Old builds become reference material.</p></div><div class="archive reveal">
-<div class="archive-row"><span class="id">001</span><div><h3>English Literature Library</h3><p>Production literature research platform</p></div><span class="date">ACTIVE</span></div>
-<div class="archive-row"><span class="id">002</span><div><h3>TensoraMax Studio</h3><p>Development and agentic experimentation environment</p></div><span class="date">BUILDING</span></div>
-<div class="archive-row"><span class="id">003</span><div><h3>Yuri Codex</h3><p>Technical knowledge and experiment archive</p></div><span class="date">ACTIVE</span></div>
-<div class="archive-row"><span class="id">004</span><div><h3>TXB</h3><p>Local-first LLM character experiment and postmortem</p></div><span class="date">FAILED / ARCHIVED</span></div>
-<div class="archive-row"><span class="id">005</span><div><h3>TSC</h3><p>Internal Lab LLM for controlled research workflows</p></div><span class="date">INTERNAL</span></div>
-</div></section>
+<section id="archive"><div class="section-head reveal"><h2>ARCHIVE</h2><p>Nothing gets erased just because it failed. Old builds become reference material.</p></div><div class="archive reveal"><div class="archive-row"><span class="id">001</span><div><h3>English Literature Library</h3><p>Production literature research platform</p></div><span class="date">ACTIVE</span></div><div class="archive-row"><span class="id">002</span><div><h3>TensoraMax Studio</h3><p>Development and agentic experimentation environment</p></div><span class="date">BUILDING</span></div><div class="archive-row"><span class="id">003</span><div><h3>Yuri Codex</h3><p>Technical knowledge and experiment archive</p></div><span class="date">ACTIVE</span></div><div class="archive-row"><span class="id">004</span><div><h3>TXB</h3><p>Local-first LLM character experiment and postmortem</p></div><span class="date">FAILED / ARCHIVED</span></div><div class="archive-row"><span class="id">005</span><div><h3>TSC</h3><p>Internal Lab LLM for controlled research workflows</p></div><span class="date">INTERNAL</span></div></div></section>
 <section class="signal"><span class="floating f1">MEMORY / 001</span><span class="floating f2">BUILD / 404</span><span class="floating f3">SIGNAL / TSC</span><h2><span>MAKE IT</span><b>STRANGE.</b><span>MAKE IT</span><b>WORK.</b></h2></section>
 </main>
-<footer id="contact"><div class="footer-marquee">TENSORA MAX LAB / BUILD BEYOND / TENSORA MAX LAB / BUILD BEYOND / </div><div class="footer-content"><div><div class="eyebrow">TENSORA MAX LAB / END OF TRANSMISSION</div><div class="footer-title">THE LAB IS<br><span>STILL RUNNING.</span></div></div><div class="footer-grid"><div><h4>LAB</h4><p>Independent digital laboratory for software, LLMs, experiments, literature and agentic systems.</p></div><div><h4>PROJECTS</h4><a href="#projects">English Literature Library</a><a href="#projects">TensoraMax Studio</a><a href="#projects">TSC</a><a href="#projects">TXB</a><a href="#projects">Yuri Codex</a></div><div><h4>RESEARCH</h4><a href="#research">Experiments</a><a href="#archive">Archive</a><a href="#archive">Postmortems</a></div><div><h4>CONTACT</h4><a href="mailto:tensoramaxstudio@gmail.com">tensoramaxstudio@gmail.com</a><a href="https://github.com/Yuri-code-dot" target="_blank" rel="noreferrer">GitHub</a></div></div><div class="copyright"><span>© 2026 TENSORA MAX LAB</span><span>BUILT WITH CODE / CURIOSITY / FAILURE</span></div></div><style id="lab-tools-style">
-.lab-tools-strip{margin-top:65px;padding:28px 0 34px;border-top:1px solid #252525;border-bottom:1px solid #252525}.lab-tools-label{font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:22px}.lab-tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.lab-tool{min-height:92px;border:1px solid #242424;background:#090909;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#777;transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}.lab-tool:hover{color:#fff;border-color:#555;transform:translateY(-5px);background:#0c0c0e}.lab-tool img{width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.72;transition:.3s}.lab-tool:hover img{filter:none;opacity:1}.lab-tool span{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.lab-tool:after{content:'↗';position:absolute;right:9px;top:7px;font:11px 'DM Mono';color:#444}.lab-tools-note{margin-top:16px;color:#555;font:9px 'DM Mono';text-transform:uppercase;letter-spacing:.08em}@media(max-width:800px){.lab-tools-strip{margin-top:45px}.lab-tools-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lab-tool{min-height:82px}}
-</style><div class="lab-tools-strip" id="lab-tools-strip">
-  <div class="lab-tools-label">Tools used by TensoraMax Lab</div>
-  <div class="lab-tools-grid">
-    <a class="lab-tool" href="https://github.com/Yuri-code-dot/Tensoramax-Lab-" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></a>
-    <a class="lab-tool" href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kaggle/ffffff" alt="Kaggle"><span>Kaggle</span></a>
-    <a class="lab-tool" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="Hugging Face"><span>Hugging Face</span></a>
-    <a class="lab-tool" href="https://railway.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="Railway"><span>Railway</span></a>
-    <a class="lab-tool" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"><span>Vercel</span></a>
-    <a class="lab-tool" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/supabase/ffffff" alt="Supabase"><span>Supabase</span></a>
-  </div>
-  <div class="lab-tools-note">Infrastructure, research platforms, deployment and data systems used across the Lab.</div>
-</div></footer>
+<footer id="contact"><div class="footer-marquee">TENSORA MAX LAB / BUILD BEYOND / TENSORA MAX LAB / BUILD BEYOND / </div><div class="footer-content"><div><div class="eyebrow">TENSORA MAX LAB / END OF TRANSMISSION</div><div class="footer-title">THE LAB IS<br><span>STILL RUNNING.</span></div></div><div class="footer-grid"><div><h4>LAB</h4><p>Independent digital laboratory for software, LLMs, experiments, literature and agentic systems.</p></div><div><h4>PROJECTS</h4><a href="#projects">English Literature Library</a><a href="#projects">TensoraMax Studio</a><a href="#projects">TSC</a><a href="#projects">TXB</a><a href="#projects">Yuri Codex</a></div><div><h4>RESEARCH</h4><a href="#research">Experiments</a><a href="#archive">Archive</a><a href="#archive">Postmortems</a></div><div><h4>CONTACT</h4><a href="mailto:tensoramaxstudio@gmail.com">tensoramaxstudio@gmail.com</a><a href="https://github.com/Yuri-code-dot" target="_blank" rel="noreferrer">GitHub</a></div></div><div class="lab-tools-strip"><div class="lab-tools-label">Tools used by TensoraMax Lab</div><div class="lab-tools-grid"><a class="lab-tool" href="https://github.com/Yuri-code-dot/Tensoramax-Lab-" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></a><a class="lab-tool" href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kaggle/ffffff" alt="Kaggle"><span>Kaggle</span></a><a class="lab-tool" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="Hugging Face"><span>Hugging Face</span></a><a class="lab-tool" href="https://railway.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="Railway"><span>Railway</span></a><a class="lab-tool" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"><span>Vercel</span></a><a class="lab-tool" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/supabase/ffffff" alt="Supabase"><span>Supabase</span></a></div><div class="lab-tools-note">Infrastructure, research platforms, deployment and data systems used across the Lab.</div></div><div class="copyright"><span>© 2026 TENSORA MAX LAB</span><span>BUILT WITH CODE / CURIOSITY / FAILURE</span></div></div></footer>
 <script>
-const root=document.documentElement,cursor=document.getElementById('cursor'),dot=document.getElementById('dot'),scan=document.getElementById('scan');
-let mx=innerWidth/2,my=innerHeight/2,dx=mx,dy=my;
-addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;root.style.setProperty('--mx',mx+'px');root.style.setProperty('--my',my+'px');if(cursor){cursor.style.left=mx+'px';cursor.style.top=my+'px'}if(dot){dot.style.left=mx+'px';dot.style.top=my+'px'}});
-function raf(){dx+=(mx-dx)*.18;dy+=(my-dy)*.18;requestAnimationFrame(raf)}raf();
-document.querySelectorAll('a,.project').forEach(el=>{el.addEventListener('mouseenter',()=>cursor?.classList.add('big'));el.addEventListener('mouseleave',()=>cursor?.classList.remove('big'))});
-document.querySelectorAll('.tilt').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`rotate(${x*5}deg) translate(${x*10}px,${y*10}px)`});card.addEventListener('pointerleave',()=>{card.style.transform=''})});
-const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));
-let n=0;const num=document.getElementById('loadnum'),loader=document.getElementById('loader');const timer=setInterval(()=>{n+=Math.floor(Math.random()*13)+7;if(n>=100){n=100;clearInterval(timer);setTimeout(()=>loader?.classList.add('done'),220)}if(num)num.textContent=String(n).padStart(2,'0')},55);
-addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;const p=h?scrollY/h:0;if(scan)scan.style.transform=`scaleX(${p})`},{passive:true});
+const root=document.documentElement,cursor=document.getElementById('cursor'),dot=document.getElementById('dot'),scan=document.getElementById('scan');let mx=innerWidth/2,my=innerHeight/2,dx=mx,dy=my;addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;root.style.setProperty('--mx',mx+'px');root.style.setProperty('--my',my+'px');if(cursor){cursor.style.left=mx+'px';cursor.style.top=my+'px'}if(dot){dot.style.left=mx+'px';dot.style.top=my+'px'}});function raf(){dx+=(mx-dx)*.18;dy+=(my-dy)*.18;requestAnimationFrame(raf)}raf();document.querySelectorAll('a,.project').forEach(el=>{el.addEventListener('mouseenter',()=>cursor?.classList.add('big'));el.addEventListener('mouseleave',()=>cursor?.classList.remove('big'))});document.querySelectorAll('.tilt').forEach(card=>{card.addEventListener('pointermove',e=>{const r=card.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;card.style.transform=`rotate(${x*5}deg) translate(${x*10}px,${y*10}px)`});card.addEventListener('pointerleave',()=>card.style.transform='')});const obs=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.reveal').forEach(e=>obs.observe(e));let n=0,num=document.getElementById('loadnum'),loader=document.getElementById('loader');const timer=setInterval(()=>{n+=Math.floor(Math.random()*13)+7;if(n>=100){n=100;clearInterval(timer);setTimeout(()=>loader?.classList.add('done'),220)}if(num)num.textContent=String(n).padStart(2,'0')},55);addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight,p=h?scrollY/h:0;if(scan)scan.style.transform=`scaleX(${p})`},{passive:true});
 </script>
-<script id="tensoramax-seasonal-js">
-(()=>{
-  const root=document.getElementById('seasonal-snow');
-  const toggle=document.getElementById('season-effect-toggle');
-  const state=toggle?.querySelector('.effect-state');
-  if(!root||!toggle||!state)return;
-  const key='tensoramax-seasonal-effects';
-  const saved=localStorage.getItem(key);
-  let enabled=saved!=='off';
-  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduced)enabled=false;
-  const flakes=[];
-  const glyphs=['❄','✦','✧','·'];
-  const count=window.innerWidth<700?34:64;
-  for(let i=0;i<count;i++){
-    const el=document.createElement('span');
-    el.className='season-snowflake';
-    el.textContent=glyphs[i%glyphs.length];
-    el.style.left=(Math.random()*100)+'vw';
-    el.style.fontSize=(6+Math.random()*14)+'px';
-    el.style.opacity=(.18+Math.random()*.62).toFixed(2);
-    root.appendChild(el);
-    flakes.push({el,x:parseFloat(el.style.left),y:-30-Math.random()*110,vy:.25+Math.random()*.75,vx:(Math.random()-.5)*.22,phase:Math.random()*Math.PI*2,wobble:.15+Math.random()*.35});
-  }
-  function render(){
-    state.textContent=enabled?'ON':'OFF';
-    toggle.setAttribute('aria-pressed',String(enabled));
-    root.style.display=enabled?'block':'none';
-  }
-  toggle.addEventListener('click',()=>{enabled=!enabled;localStorage.setItem(key,enabled?'on':'off');render()});
-  let last=performance.now();
-  function frame(now){
-    const dt=Math.min(32,now-last); last=now;
-    if(enabled){
-      for(const f of flakes){
-        f.y+=f.vy*dt; f.x+=f.vx*dt; f.phase+=.0015*dt;
-        const drift=Math.sin(f.phase)*f.wobble;
-        if(f.y>innerHeight+30){f.y=-30-Math.random()*90;f.x=Math.random()*innerWidth}
-        if(f.x<-30)f.x=innerWidth+20;if(f.x>innerWidth+30)f.x=-20;
-        f.el.style.transform=`translate3d(${f.x}px,${f.y}px,0) rotate(${f.phase*35}deg)`;
-      }
-    }
-    requestAnimationFrame(frame);
-  }
-  render(); requestAnimationFrame(frame);
-})();
+<script>
+(()=>{const root=document.getElementById('seasonal-snow'),toggle=document.getElementById('season-effect-toggle'),state=toggle?.querySelector('.effect-state');if(!root||!toggle||!state)return;const key='tensoramax-seasonal-effects',saved=localStorage.getItem(key);let enabled=saved!=='off';const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;if(reduced)enabled=false;const flakes=[],glyphs=['❄','✦','✧','·'],count=innerWidth<700?28:56;for(let i=0;i<count;i++){const el=document.createElement('span');el.className='season-snowflake';el.textContent=glyphs[i%glyphs.length];el.style.left=Math.random()*100+'vw';el.style.fontSize=6+Math.random()*14+'px';flakes.push({el,x:parseFloat(el.style.left),y:-30-Math.random()*110,vy:.25+Math.random()*.75,vx:(Math.random()-.5)*.22,phase:Math.random()*6.28})}function render(){state.textContent=enabled?'ON':'OFF';toggle.setAttribute('aria-pressed',String(enabled));root.style.display=enabled?'block':'none';if(enabled&&!root.children.length)flakes.forEach(f=>root.appendChild(f.el))}toggle.addEventListener('click',()=>{enabled=!enabled;localStorage.setItem(key,enabled?'on':'off');render()});let last=performance.now();function frame(now){const dt=Math.min(32,now-last);last=now;if(enabled)for(const f of flakes){f.y+=f.vy*dt;f.x+=f.vx*dt;f.phase+=.0015*dt;if(f.y>innerHeight+30){f.y=-30-Math.random()*90;f.x=Math.random()*innerWidth}f.el.style.transform=`translate3d(${f.x}px,${f.y}px,0) rotate(${f.phase*35}deg)`}requestAnimationFrame(frame)}render();requestAnimationFrame(frame)})();
 </script>
-
-
-<script id="tensoramax-liquid-ink-final-js">
+<script id="tensoramax-gpu-liquid">
 (()=>{
-  const layer=document.getElementById('lab-ink');
-  const canvas=document.getElementById('lab-ink-canvas');
-  const rip=document.getElementById('lab-ink-rip');
-  if(!layer||!canvas)return;
-  const ctx=canvas.getContext('2d');
-  if(!ctx)return;
-
-  let w=0,h=0,dpr=1;
-  let active=false,armed=false,dragging=false,closing=false;
-  let startY=0,lastY=0,startX=0,progress=0,target=0,velocity=0;
-  let touchMode=false;
-  const blobs=Array.from({length:34},(_,i)=>({x:(i/33)*1.1-.05,r:.018+Math.random()*.05,phase:Math.random()*6.28,speed:.35+Math.random()*.8}));
-
-  function resize(){
-    dpr=Math.min(window.devicePixelRatio||1,2);
-    w=innerWidth;h=innerHeight;
-    canvas.width=w*dpr;canvas.height=h*dpr;
-    canvas.style.width=w+'px';canvas.style.height=h+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-  }
-  addEventListener('resize',resize,{passive:true});
-  resize();
-
-  function openInk(y,x){
-    active=true;armed=false;dragging=true;closing=false;
-    startY=lastY=y;startX=x;progress=0;target=0;velocity=0;
-    layer.classList.add('is-active');
-    layer.setAttribute('aria-hidden','false');
-  }
-  function closeInk(){
-    active=false;armed=false;dragging=false;closing=false;touchMode=false;
-    layer.classList.remove('is-active');
-    layer.setAttribute('aria-hidden','true');
-    if(rip)rip.style.opacity='0';
-  }
-  function finish(){
-    if(!active||closing)return;
-    closing=true;dragging=false;
-    if(progress>.52){
-      progress=target=1.14;
-      setTimeout(closeInk,520);
-    }else{
-      target=0;
-      setTimeout(closeInk,260);
-    }
-  }
-  function move(y){
-    if(!dragging)return;
-    velocity=y-lastY;lastY=y;
-    progress=Math.max(0,Math.min(1.14,(y-startY)/(h*.86)));
-    target=progress;
-    if(rip){
-      rip.style.left='50%';
-      rip.style.top=Math.max(0,Math.min(100,progress*100))+'%';
-      rip.style.opacity=Math.min(.45,.08+progress*.4);
-      rip.style.transform=`translate(-50%,-50%) scale(${.25+progress*1.9})`;
-    }
-  }
-  function paint(t){
-    if(!active)return;
-    ctx.clearRect(0,0,w,h);
-    const edge=Math.max(-.03,Math.min(1.16,target));
-    ctx.save();ctx.beginPath();ctx.moveTo(0,0);ctx.lineTo(w,0);
-    const n=110;
-    for(let i=0;i<=n;i++){
-      const nx=i/n;
-      let wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;
-      for(const b of blobs)wave+=Math.exp(-Math.pow((nx-b.x)/(b.r*2.7),2))*b.r*(.25+.75*Math.sin(t*.001*b.speed+b.phase));
-      ctx.lineTo(nx*w,(edge+wave)*h);
-    }
-    ctx.lineTo(w,h);ctx.lineTo(0,h);ctx.closePath();
-    const g=ctx.createLinearGradient(0,0,0,h);
-    g.addColorStop(0,'#e01d5d');g.addColorStop(.5,'#b80e40');g.addColorStop(1,'#65082b');
-    ctx.fillStyle=g;ctx.shadowColor='rgba(224,29,93,.32)';ctx.shadowBlur=48;ctx.fill();ctx.restore();
-    if(edge>.04){
-      ctx.save();ctx.globalAlpha=.3;ctx.strokeStyle='#ff79a4';ctx.lineWidth=1;ctx.beginPath();
-      for(let i=0;i<=n;i++){const nx=i/n;const wave=Math.sin(nx*16+t*.00135)*(.012+Math.min(.028,Math.abs(velocity)*.002))+Math.sin(nx*43-t*.0008)*.007;ctx.lineTo(nx*w,(edge+wave)*h)}
-      ctx.stroke();ctx.restore();
-    }
-  }
-  function loop(t){
-    target+=(progress-target)*.22;
-    paint(t);
-    requestAnimationFrame(loop);
-  }
-
-  function ignored(el){return !!el?.closest?.('a,button,input,textarea,select,summary,[data-no-ink]')}
-
-  addEventListener('touchstart',e=>{
-    if(e.touches.length!==1||ignored(e.target))return;
-    const t=e.touches[0];
-    touchMode=true;armed=true;dragging=false;
-    startX=t.clientX;startY=lastY=t.clientY;
-  },{passive:false,capture:true});
-
-  addEventListener('touchmove',e=>{
-    if(!touchMode||!armed||e.touches.length!==1)return;
-    const t=e.touches[0];
-    const dy=t.clientY-startY,dx=t.clientX-startX;
-    if(!active&&dy>8&&Math.abs(dy)>Math.abs(dx)*.65){
-      e.preventDefault();
-      openInk(startY,startX);
-      move(t.clientY);
-    }else if(active){
-      e.preventDefault();
-      move(t.clientY);
-    }
-  },{passive:false,capture:true});
-
-  addEventListener('touchend',e=>{
-    if(!touchMode)return;
-    if(active)finish();
-    else{armed=false;dragging=false;touchMode=false}
-  },{passive:false,capture:true});
-  addEventListener('touchcancel',()=>{if(active)closeInk();else{armed=false;dragging=false;touchMode=false}},{passive:true,capture:true});
-
-  addEventListener('pointerdown',e=>{
-    if(e.pointerType==='touch'||ignored(e.target))return;
-    armed=true;dragging=false;startX=e.clientX;startY=lastY=e.clientY;
-  },{passive:true});
-  addEventListener('pointermove',e=>{
-    if(e.pointerType==='touch'||(!armed&&!active))return;
-    const dy=e.clientY-startY,dx=e.clientX-startX;
-    if(!active&&dy>10&&Math.abs(dy)>Math.abs(dx)*.55){openInk(startY,startX);move(e.clientY)}
-    else if(active){e.preventDefault();move(e.clientY)}
-  },{passive:false});
-  addEventListener('pointerup',e=>{if(e.pointerType==='touch')return;if(active)finish();else{armed=false;dragging=false}},{passive:true});
-  addEventListener('pointercancel',e=>{if(e.pointerType==='touch')return;closeInk()},{passive:true});
-
-  requestAnimationFrame(loop);
+ const layer=document.getElementById('lab-ink'),canvas=document.getElementById('lab-ink-canvas'),bar=document.getElementById('lab-ink-progress');if(!layer||!canvas)return;
+ const gl=canvas.getContext('webgl2',{alpha:true,antialias:false,powerPreference:'high-performance'});if(!gl)return;
+ const vs=`#version 300 es\nin vec2 p;out vec2 uv;void main(){uv=p*.5+.5;gl_Position=vec4(p,0.,1.);}`;
+ const fs=`#version 300 es\nprecision highp float;in vec2 uv;out vec4 outColor;uniform float u_time,u_progress,u_velocity;uniform vec2 u_point,u_size;\nfloat hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123);}\nfloat noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+1.),f.x),f.y);}\nfloat fbm(vec2 p){float v=0.,a=.5;for(int i=0;i<4;i++){v+=a*noise(p);p*=2.;a*=.5;}return v;}\nvoid main(){vec2 q=uv;float t=u_time*.00045;float edge=u_progress;float n=fbm(vec2(q.x*3.2+t,q.y*2.1-t*.7));float flow=sin(q.x*15.-t*18.+n*5.)*.018+sin(q.x*38.+t*11.)*.008;float drag=u_velocity*.055*(.5+.5*sin(q.x*20.-t*9.));float boundary=edge+flow+drag+(n-.5)*.035;float feather=.018+.012*abs(u_velocity);float a=1.-smoothstep(boundary-feather,boundary+feather,q.y);float blobs=0.;for(int i=0;i<7;i++){float fi=float(i);vec2 bp=vec2(fract(fi*.173+.19)+.12*sin(t*2.+fi),edge+.08*sin(t*5.+fi*1.7));float d=length((q-bp)*vec2(1.,.65));blobs+=exp(-d*d*1800.)*.24;}a=max(a,min(1.,blobs));float shimmer=.08+.12*fbm(q*7.+t*4.);vec3 c=mix(vec3(.23,.015,.09),vec3(.92,.04,.28),smoothstep(.15,.9,q.y));c+=shimmer*.18;float rim=smoothstep(.0,.025,abs(q.y-boundary));c+=vec3(1.,.18,.48)*(1.-rim)*.45;outColor=vec4(c,a*.96);}`;
+ function shader(type,src){const s=gl.createShader(type);gl.shaderSource(s,src);gl.compileShader(s);return s}const prog=gl.createProgram(),v=shader(gl.VERTEX_SHADER,vs),f=shader(gl.FRAGMENT_SHADER,fs);gl.attachShader(prog,v);gl.attachShader(prog,f);gl.linkProgram(prog);if(!gl.getProgramParameter(prog,gl.LINK_STATUS))return;gl.useProgram(prog);
+ const buf=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buf);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);const loc=gl.getAttribLocation(prog,'p');gl.enableVertexAttribArray(loc);gl.vertexAttribPointer(loc,2,gl.FLOAT,false,0,0);const U={time:gl.getUniformLocation(prog,'u_time'),progress:gl.getUniformLocation(prog,'u_progress'),velocity:gl.getUniformLocation(prog,'u_velocity'),point:gl.getUniformLocation(prog,'u_point'),size:gl.getUniformLocation(prog,'u_size')};
+ let w=0,h=0,dpr=1,active=false,armed=false,startY=0,lastY=0,progress=0,target=0,velocity=0,lastTime=performance.now();
+ function resize(){dpr=Math.min(devicePixelRatio||1,2);w=innerWidth;h=innerHeight;canvas.width=w*dpr;canvas.height=h*dpr;gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(U.size,w,h)}addEventListener('resize',resize,{passive:true});resize();
+ function ignored(e){return !!e?.target?.closest?.('a,button,input,textarea,select,summary,[data-no-ink]')}
+ function open(y){active=true;armed=false;startY=lastY=y;progress=target=0;velocity=0;layer.classList.add('is-active');layer.setAttribute('aria-hidden','false')}
+ function move(y){if(!active)return;velocity=(y-lastY)/Math.max(8,performance.now()-lastTime)*16;lastY=y;lastTime=performance.now();progress=Math.max(0,Math.min(1.12,(y-startY)/(h*.82)));target=progress;if(bar)bar.style.transform=`scaleY(${Math.min(1,progress)})`}
+ function close(){active=false;armed=false;layer.classList.remove('is-active');layer.setAttribute('aria-hidden','true');if(bar)bar.style.transform='scaleY(0)'}
+ function finish(){if(!active)return;if(progress>.5){target=1.12;setTimeout(close,620)}else{target=0;setTimeout(close,320)}}
+ addEventListener('touchstart',e=>{if(e.touches.length!==1||ignored(e))return;armed=true;const t=e.touches[0];startY=lastY=t.clientY;lastTime=performance.now()},{passive:false,capture:true});
+ addEventListener('touchmove',e=>{if(e.touches.length!==1||(!armed&&!active))return;const t=e.touches[0],dy=t.clientY-startY,dx=Math.abs(t.clientX-(innerWidth/2));if(!active&&dy>8&&dy>dx*.28){e.preventDefault();open(startY);move(t.clientY)}else if(active){e.preventDefault();move(t.clientY)}},{passive:false,capture:true});addEventListener('touchend',()=>{if(active)finish();else armed=false},{passive:true,capture:true});addEventListener('touchcancel',close,{passive:true,capture:true});
+ addEventListener('pointerdown',e=>{if(e.pointerType==='touch'||ignored(e))return;armed=true;startY=lastY=e.clientY;lastTime=performance.now()},{passive:true});addEventListener('pointermove',e=>{if(e.pointerType==='touch'||(!armed&&!active))return;const dy=e.clientY-startY;if(!active&&dy>10){open(startY);move(e.clientY)}else if(active){e.preventDefault();move(e.clientY)}},{passive:false});addEventListener('pointerup',e=>{if(e.pointerType!=='touch'&&active)finish();else armed=false},{passive:true});
+ function render(t){target+=(progress-target)*.16;velocity*=.91;gl.clearColor(0,0,0,0);gl.clear(gl.COLOR_BUFFER_BIT);if(active){gl.useProgram(prog);gl.uniform1f(U.time,t);gl.uniform1f(U.progress,target);gl.uniform1f(U.velocity,velocity);gl.uniform2f(U.point,.5,target);gl.drawArrays(gl.TRIANGLES,0,6)}requestAnimationFrame(render)}requestAnimationFrame(render);
 })();
 </script>
 </body>
