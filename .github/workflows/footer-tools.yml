@@ -1,4 +1,4 @@
-name: Inject Lab tools footer
+name: Inject Lab tools and agent status
 
 on:
   push:
@@ -8,54 +8,42 @@ permissions:
   contents: write
 
 jobs:
-  footer:
+  patch:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Inject tools footer
+      - name: Inject Lab UI patches
         shell: python
         run: |
           from pathlib import Path
           p = Path('index.html')
           s = p.read_text(encoding='utf-8')
-          marker = 'id="lab-tools-strip"'
-          if marker in s:
-              print('Tools footer already present')
-              raise SystemExit(0)
 
-          css = r'''<style id="lab-tools-style">
-          .lab-tools-strip{margin-top:65px;padding:28px 0 34px;border-top:1px solid #252525;border-bottom:1px solid #252525}.lab-tools-label{font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:22px}.lab-tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.lab-tool{min-height:92px;border:1px solid #242424;background:#090909;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#777;transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}.lab-tool:hover{color:#fff;border-color:#555;transform:translateY(-5px);background:#0c0c0e}.lab-tool img{width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.72;transition:.3s}.lab-tool:hover img{filter:none;opacity:1}.lab-tool span{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.lab-tool:after{content:'↗';position:absolute;right:9px;top:7px;font:11px 'DM Mono';color:#444}.lab-tools-note{margin-top:16px;color:#555;font:9px 'DM Mono';text-transform:uppercase;letter-spacing:.08em}@media(max-width:800px){.lab-tools-strip{margin-top:45px}.lab-tools-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lab-tool{min-height:82px}}
-          </style>'''
+          if 'id="lab-tools-strip"' not in s:
+              css = r'''<style id="lab-tools-style">.lab-tools-strip{margin-top:65px;padding:28px 0 34px;border-top:1px solid #252525;border-bottom:1px solid #252525}.lab-tools-label{font:10px 'DM Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#555;margin-bottom:22px}.lab-tools-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}.lab-tool{min-height:92px;border:1px solid #242424;background:#090909;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:11px;color:#777;transition:.35s cubic-bezier(.16,1,.3,1);position:relative;overflow:hidden}.lab-tool:hover{color:#fff;border-color:#555;transform:translateY(-5px);background:#0c0c0e}.lab-tool img{width:28px;height:28px;object-fit:contain;filter:grayscale(1) brightness(1.8);opacity:.72;transition:.3s}.lab-tool:hover img{filter:none;opacity:1}.lab-tool span{font:10px 'DM Mono',monospace;letter-spacing:.08em;text-transform:uppercase}.lab-tool:after{content:'↗';position:absolute;right:9px;top:7px;font:11px 'DM Mono';color:#444}.lab-tools-note{margin-top:16px;color:#555;font:9px 'DM Mono';text-transform:uppercase;letter-spacing:.08em}@media(max-width:800px){.lab-tools-strip{margin-top:45px}.lab-tools-grid{grid-template-columns:repeat(2,1fr);gap:8px}.lab-tool{min-height:82px}}</style>'''
+              html = r'''<div class="lab-tools-strip" id="lab-tools-strip"><div class="lab-tools-label">Tools used by TensoraMax Lab</div><div class="lab-tools-grid"><a class="lab-tool" href="https://github.com/Yuri-code-dot/Tensoramax-Lab-" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></a><a class="lab-tool" href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kaggle/ffffff" alt="Kaggle"><span>Kaggle</span></a><a class="lab-tool" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="Hugging Face"><span>Hugging Face</span></a><a class="lab-tool" href="https://railway.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="Railway"><span>Railway</span></a><a class="lab-tool" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"><span>Vercel</span></a><a class="lab-tool" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/supabase/ffffff" alt="Supabase"><span>Supabase</span></a></div><div class="lab-tools-note">Infrastructure, research platforms, deployment and data systems used across the Lab.</div></div>'''
+              footer = s.find('</footer>')
+              if footer == -1: raise SystemExit('No footer found')
+              s = s[:footer] + css + html + s[footer:]
 
-          html = r'''<div class="lab-tools-strip" id="lab-tools-strip">
-            <div class="lab-tools-label">Tools used by TensoraMax Lab</div>
-            <div class="lab-tools-grid">
-              <a class="lab-tool" href="https://github.com/Yuri-code-dot/Tensoramax-Lab-" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/github/ffffff" alt="GitHub"><span>GitHub</span></a>
-              <a class="lab-tool" href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/kaggle/ffffff" alt="Kaggle"><span>Kaggle</span></a>
-              <a class="lab-tool" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/huggingface/ffffff" alt="Hugging Face"><span>Hugging Face</span></a>
-              <a class="lab-tool" href="https://railway.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/railway/ffffff" alt="Railway"><span>Railway</span></a>
-              <a class="lab-tool" href="https://vercel.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/vercel/ffffff" alt="Vercel"><span>Vercel</span></a>
-              <a class="lab-tool" href="https://supabase.com/" target="_blank" rel="noopener noreferrer"><img src="https://cdn.simpleicons.org/supabase/ffffff" alt="Supabase"><span>Supabase</span></a>
-            </div>
-            <div class="lab-tools-note">Infrastructure, research platforms, deployment and data systems used across the Lab.</div>
-          </div>'''
+          if '/* TENSORA_AGENT_STATUS */' not in s:
+              css = r'''<style id="tensoramax-agent-status-css">/* TENSORA_AGENT_STATUS */#tensoramax-agent-status{position:fixed;top:88px;left:28px;z-index:45;display:flex;align-items:center;gap:8px;color:#777;font:9px 'DM Mono',monospace;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;pointer-events:none;mix-blend-mode:screen}#tensoramax-agent-status .agent-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);box-shadow:0 0 14px var(--purple);animation:tma-pulse 2s ease-in-out infinite}#tensoramax-agent-status .agent-count{color:#eee}#tensoramax-agent-status .agent-detail{color:#666}#tensoramax-agent-status .agent-tsc{color:var(--purple)}@keyframes tma-pulse{50%{opacity:.45;transform:scale(.78)}}@media(max-width:800px){#tensoramax-agent-status{top:82px;left:14px;font-size:8px;gap:6px}#tensoramax-agent-status .agent-detail{display:none}}@media(prefers-reduced-motion:reduce){#tensoramax-agent-status .agent-dot{animation:none}}</style>'''
+              html = r'''<div id="tensoramax-agent-status" aria-label="Tensoramax Lab agent system status"><span class="agent-dot" aria-hidden="true"></span><span class="agent-count">100 AGENTS</span><span class="agent-detail">· <span id="tma-working">50</span> WORKING</span><span class="agent-detail">· <span id="tma-lab">10</span> LAB</span><span class="agent-detail">· <span id="tma-idle">40</span> IDLE</span><span class="agent-tsc" id="tma-tsc">· TSC</span></div>'''
+              js = r'''<script id="tensoramax-agent-status-js">(()=>{const root=document.getElementById('tensoramax-agent-status'),working=document.getElementById('tma-working'),lab=document.getElementById('tma-lab'),idle=document.getElementById('tma-idle'),tsc=document.getElementById('tma-tsc');if(!root||!working||!lab||!idle||!tsc)return;let previous={working:50,lab:10,idle:40};const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));const next=(v,s)=>v+Math.floor(Math.random()*(s*2+1))-s;function render(){const w=clamp(next(previous.working,6),38,60),l=clamp(next(previous.lab,3),6,16),i=100-w-l;previous={working:w,lab:l,idle:i};working.textContent=w;lab.textContent=l;idle.textContent=i;const modes=['WEB RESEARCH','LAB WORK','CODE','DATA','ANALYSIS'];tsc.textContent='· TSC / '+modes[Math.floor(Math.random()*modes.length)]}render();window.setInterval(render,10000)})();</script>'''
+              s = s.replace('</head>', css+'\n</head>', 1)
+              if '<main id="top">' in s: s = s.replace('<main id="top">', html+'\n<main id="top">', 1)
+              else: s = s.replace('<body>', '<body>\n'+html, 1)
+              s = s.replace('</body>', js+'\n</body>', 1)
 
-          footer = s.find('</footer>')
-          if footer == -1:
-              print('No footer found')
-              raise SystemExit(1)
-          s = s[:footer] + css + html + s[footer:]
           p.write_text(s, encoding='utf-8')
-      - name: Commit footer patch
+
+      - name: Commit Lab UI patches
         run: |
-          if git diff --quiet; then
-            echo "No changes"
-            exit 0
-          fi
+          if git diff --quiet; then echo "No changes"; exit 0; fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add index.html
-          git commit -m "Add tools used by Lab footer"
+          git commit -m "Add agent status indicator"
           git push
