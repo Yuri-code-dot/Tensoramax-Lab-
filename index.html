@@ -15,6 +15,299 @@
 @media(max-width:800px){.wrap{width:min(100% - 28px,var(--max))}.topbar{height:64px}.nav{display:none}.live{font-size:8px}.hero{min-height:auto;grid-template-columns:1fr;padding:90px 0 70px;gap:55px}.hero:after{width:90vw;height:90vw;right:-35vw;top:18%;opacity:.6}.hero h1{font-size:clamp(61px,19vw,120px)}.hero-side{padding-left:18px}.hero-side p{font-size:13px}.hero-index{margin-top:30px;flex-wrap:wrap}.ticker-track{font-size:9px}.section-top{grid-template-columns:45px 1fr;gap:15px}.section-top p{grid-column:2;margin-top:5px}.projects,.research-grid{grid-template-columns:1fr}.project,.project:nth-child(1){grid-row:auto;min-height:350px}.project:nth-child(1){min-height:480px}.research-card{min-height:380px;padding:25px}.research-list{grid-template-columns:1fr}.principles{grid-template-columns:1fr}.principle{border-right:0;border-bottom:1px solid var(--line);min-height:170px}.principle:last-child{border-bottom:0}.archive-row{grid-template-columns:38px 1fr 24px}.archive-row .state{display:none}.archive-row h3{font-size:16px}.closing{padding:100px 0 115px}.closing h2{font-size:20vw}.footer-main{grid-template-columns:1fr 1fr;gap:35px}.footer-main>div:first-child{grid-column:1/-1}.footer-bottom{display:block;line-height:2}.footer-bottom span{display:block}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.ticker-track{animation:none}.project{transition:none}}
 </style>
+
+<style id="tensoramax-chaos-css">
+/* TENSORA MAX LAB / UNHINGED DESKTOP SYSTEM */
+:root{
+  --bg:#07111f;--panel:rgba(19,42,67,.72);--panel2:rgba(8,24,42,.82);
+  --text:#f4fbff;--muted:#a9c5d8;--dim:#66869d;--line:rgba(178,224,255,.34);
+  --purple:#a78bff;--purple2:#d7c8ff;--vista:#69c9ff;--danger:#ff5b70;
+  --glass:rgba(80,157,215,.20);--max:1500px;
+}
+html{background:#06101d}
+body{
+  min-height:100vh;background:
+  radial-gradient(circle at 12% 18%,rgba(58,151,255,.42),transparent 27%),
+  radial-gradient(circle at 83% 16%,rgba(155,92,255,.42),transparent 25%),
+  radial-gradient(circle at 55% 72%,rgba(26,110,177,.35),transparent 35%),
+  linear-gradient(145deg,#06101d 0%,#102b49 42%,#10162d 72%,#06101b 100%);
+  font-family:'DM Mono',monospace;color:var(--text);
+}
+body:after{
+  content:"START  ◉   TENSORA MAX LAB.exe   |   ideas.exe   |   tsc_core.exe                         06:26 PM";
+  position:fixed;left:0;right:0;bottom:0;height:34px;z-index:999;
+  display:flex;align-items:center;padding:0 14px;
+  background:linear-gradient(#8fd7ff,#2b75b1 48%,#0e3558);
+  border-top:1px solid #d9f5ff;color:#eefaff;
+  box-shadow:0 -5px 22px rgba(0,0,0,.28);
+  font:10px 'DM Mono';white-space:pre;overflow:hidden;
+}
+.wrap{width:min(var(--max),calc(100% - 34px))}
+.topbar{
+  position:sticky;top:0;z-index:90;height:48px;margin:0!important;width:100%;
+  padding:0 14px;border:1px solid rgba(255,255,255,.55);
+  background:linear-gradient(180deg,rgba(230,250,255,.86),rgba(76,143,193,.82) 48%,rgba(20,54,89,.9));
+  box-shadow:0 2px 18px rgba(0,0,0,.45),inset 0 1px rgba(255,255,255,.9);
+}
+.logo{font:700 13px 'Space Grotesk';letter-spacing:-.04em;color:#09213a!important;text-shadow:0 1px #fff}
+.logo span{color:#a52342!important}
+.nav{color:#0a2b49!important;gap:0;border-left:1px solid rgba(0,0,0,.18)}
+.nav a{padding:8px 14px;border-right:1px solid rgba(0,0,0,.14);background:rgba(255,255,255,.12)}
+.nav a:hover{background:rgba(255,255,255,.38);color:#06182a!important}
+.live{color:#08304e!important}
+.live i{background:#40ef78;box-shadow:0 0 13px #40ef78}
+
+#tensoramax-agent-status,#seasonal-environment{
+  z-index:88!important;border:1px solid rgba(210,244,255,.45)!important;
+  background:linear-gradient(180deg,rgba(224,248,255,.72),rgba(61,114,158,.62))!important;
+  color:#092b48!important;box-shadow:0 5px 20px rgba(0,0,0,.28)!important;
+}
+#tensoramax-agent-status{top:60px!important;left:14px!important;padding:7px 10px}
+#seasonal-environment{top:60px!important;right:14px!important}
+
+main{
+  position:relative;overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg,rgba(255,255,255,.012) 0 1px,transparent 1px 4px),
+    radial-gradient(circle at 50% 20%,rgba(120,199,255,.12),transparent 40%);
+}
+main:before{
+  content:"TENSORAMAX // EXPERIMENTAL DESKTOP // BUILD 2002→2026 // HUMAN + MACHINE";
+  position:absolute;top:76px;left:4%;z-index:1;color:rgba(200,235,255,.32);
+  font:9px 'DM Mono';letter-spacing:.18em;transform:rotate(-2deg);
+}
+.hero{
+  min-height:820px!important;display:block!important;position:relative;
+  padding:150px 0 90px!important;
+}
+.hero>div:first-child{
+  position:relative;z-index:5;width:min(900px,92%);
+  padding:36px 42px 42px;border:1px solid rgba(218,247,255,.72);
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.18),rgba(69,142,196,.24) 40%,rgba(11,25,44,.68)),
+    rgba(15,43,70,.55);
+  backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:12px 18px 0 rgba(5,18,31,.32),0 0 55px rgba(80,180,255,.22);
+  transform:rotate(-1.1deg);
+}
+.hero>div:first-child:before{
+  content:"home.exe   —   TensoraMax Lab";
+  display:block;margin:-20px -25px 30px;padding:8px 12px;
+  background:linear-gradient(#d9f4ff,#79b8df 50%,#316c9b);
+  border:1px solid #dff8ff;color:#06243c;
+  font:10px 'DM Mono';box-shadow:0 1px 4px #00101d;
+}
+.eyebrow{color:#bde9ff!important}
+.hero h1{
+  font-family:'Space Grotesk'!important;font-size:clamp(68px,11vw,165px)!important;
+  line-height:.75!important;letter-spacing:-.11em!important;
+  text-shadow:6px 7px 0 rgba(0,0,0,.34),0 0 28px rgba(127,207,255,.35);
+}
+.hero h1 .stroke{-webkit-text-stroke:2px #b8e6ff!important}
+.hero h1 .accent{color:#d8c7ff!important}
+.hero-index{color:#bce4f8!important}
+.hero-side{
+  position:absolute;right:2%;top:250px;z-index:12;
+  width:min(390px,44%);max-width:none!important;
+  padding:24px!important;border:1px solid rgba(223,249,255,.72);
+  background:rgba(12,31,51,.76);backdrop-filter:blur(14px);
+  box-shadow:10px 12px 0 rgba(3,13,23,.3);transform:rotate(2.4deg);
+}
+.hero-side:before{content:"about.txt";display:block;margin:-24px -24px 20px;padding:8px 12px;background:linear-gradient(#d9f6ff,#79afd3);color:#0a2942;font-size:10px;border-bottom:1px solid #dff}
+.hero-side p{color:#d3eaf7!important}
+.hero-side a,.button{
+  border-color:#b8e6ff!important;background:rgba(87,174,229,.16)!important;color:#effaff!important;
+  box-shadow:inset 0 0 15px rgba(122,205,255,.12)
+}
+.hero:after{
+  width:700px!important;height:700px!important;right:-160px!important;top:50px!important;
+  background:radial-gradient(circle,rgba(137,214,255,.55),rgba(121,93,255,.2) 30%,transparent 68%)!important;
+  filter:blur(12px)!important;
+}
+.ticker{border-color:rgba(205,238,255,.35)!important;background:rgba(0,0,0,.22)}
+.ticker-track{color:#b9d9ec!important}
+.ticker b{color:#d9c8ff!important}
+
+section{padding:105px 0!important;position:relative}
+.section-top{
+  position:relative;z-index:3;display:block!important;width:max-content;max-width:88%;
+  padding:14px 20px!important;margin:0 0 35px 4%!important;
+  border:1px solid rgba(222,248,255,.7)!important;
+  background:linear-gradient(145deg,rgba(232,250,255,.75),rgba(65,122,166,.7));
+  box-shadow:7px 9px 0 rgba(2,15,27,.4);transform:rotate(-1.5deg);
+}
+.section-top .index{color:#133c5b!important}
+.section-top h2{font-family:'Space Grotesk'!important;font-size:clamp(46px,8vw,100px)!important;color:#08213a!important;text-shadow:0 1px rgba(255,255,255,.7)}
+.section-top p{color:#173f5d!important;max-width:390px;margin-top:10px!important}
+
+.projects{display:block!important;position:relative;min-height:1250px}
+.project{
+  position:absolute!important;width:min(580px,62%)!important;min-height:330px!important;
+  padding:25px!important;border:1px solid rgba(222,249,255,.68)!important;
+  background:linear-gradient(145deg,rgba(44,91,127,.74),rgba(7,25,44,.88))!important;
+  backdrop-filter:blur(13px);box-shadow:9px 12px 0 rgba(1,12,23,.38),0 0 35px rgba(60,163,226,.12);
+}
+.project:nth-child(1){left:3%;top:30px;transform:rotate(-2deg)!important;min-height:500px!important}
+.project:nth-child(2){right:3%;top:10px;transform:rotate(2.6deg)!important}
+.project:nth-child(3){left:16%;top:390px;transform:rotate(1deg)!important}
+.project:nth-child(4){right:8%;top:455px;transform:rotate(-3deg)!important}
+.project:nth-child(5){left:5%;top:800px;transform:rotate(2.2deg)!important}
+.project:hover{z-index:20!important;transform:scale(1.025) rotate(0deg)!important;border-color:#d5f5ff!important}
+.project h3{color:#f4fbff!important;text-shadow:3px 3px rgba(0,0,0,.28)}
+.project p{color:#b9d6e7!important}
+.project-foot{border-color:rgba(205,238,255,.3)!important;color:#9fc0d4!important}
+.tag{color:#d9c8ff!important}
+
+.resource-core{
+  position:relative;z-index:5;margin:0 5%;padding:0 0 70px!important;
+  border:1px solid rgba(225,250,255,.68)!important;
+  background:linear-gradient(145deg,rgba(210,239,252,.25),rgba(10,30,50,.72));
+  box-shadow:13px 17px 0 rgba(0,0,0,.3),0 0 60px rgba(83,178,239,.16);
+  transform:rotate(.8deg);
+}
+.resource-head{padding:10px 16px!important;background:linear-gradient(#dff8ff,#73b2da);border-bottom:1px solid #e9fbff!important}
+.resource-kicker{color:#062b49!important}
+.resource-note{color:#184666!important}
+.resource-grid{padding:14px;gap:14px}
+.resource-card{background:rgba(8,28,47,.68)!important;border-color:rgba(211,245,255,.5)!important}
+.resource-value{color:#fff!important;text-shadow:3px 3px rgba(0,0,0,.3)}
+.resource-unit{color:#bfeaff!important}
+.resource-sub{color:#b4cfdf!important}
+.resource-flow b{color:#d8c7ff!important}
+
+#research .research-grid{display:block;position:relative;min-height:820px}
+.research-card{
+  position:absolute;min-height:390px!important;width:min(700px,68%);
+  background:linear-gradient(145deg,rgba(228,247,255,.77),rgba(49,103,145,.74))!important;
+  color:#08213a;border:1px solid #dff8ff!important;
+  box-shadow:10px 13px 0 rgba(0,0,0,.32);backdrop-filter:blur(12px);
+}
+.research-card:nth-child(1){left:4%;top:20px;transform:rotate(-2.5deg)}
+.research-card:nth-child(2){right:4%;top:300px;transform:rotate(3deg)}
+.research-card h3{color:#071f36!important}
+.research-card p{color:#173f5d!important}
+.research-list{border-color:rgba(10,44,69,.35)!important}
+.research-list div{background:rgba(238,250,255,.38)!important;color:#123a56!important}
+
+#principles .principles{display:block;position:relative;min-height:580px;border:0}
+.principle{
+  position:absolute;width:320px;min-height:220px!important;
+  border:1px solid rgba(222,249,255,.65)!important;
+  background:rgba(14,39,62,.78)!important;box-shadow:8px 10px 0 rgba(0,0,0,.3);
+  padding:25px!important;backdrop-filter:blur(10px)
+}
+.principle:nth-child(1){left:2%;top:10px;transform:rotate(-4deg)}
+.principle:nth-child(2){left:28%;top:150px;transform:rotate(2deg)}
+.principle:nth-child(3){right:24%;top:15px;transform:rotate(-1deg)}
+.principle:nth-child(4){right:2%;top:260px;transform:rotate(4deg)}
+.principle h3{color:#fff!important}.principle p{color:#b6d2e2!important}
+
+#archive .archive{
+  position:relative;min-height:550px;padding:20px;
+  border:1px dashed rgba(201,237,255,.5);background:rgba(4,17,30,.4)
+}
+.archive-row{
+  position:absolute!important;width:min(650px,70%);padding:18px!important;
+  background:linear-gradient(90deg,rgba(229,248,255,.82),rgba(91,145,181,.75))!important;
+  color:#08223b;border:1px solid #dff8ff!important;box-shadow:7px 8px 0 rgba(0,0,0,.28)
+}
+.archive-row:nth-child(1){left:2%;top:30px;transform:rotate(-2deg)}
+.archive-row:nth-child(2){right:4%;top:125px;transform:rotate(2.5deg)}
+.archive-row:nth-child(3){left:15%;top:255px;transform:rotate(-1deg)}
+.archive-row:nth-child(4){right:10%;top:380px;transform:rotate(3deg)}
+.archive-row h3{color:#08213a!important}.archive-row p,.archive-row .id,.archive-row .state{color:#204b68!important}.archive-row .arrow{color:#6b2fff!important}
+
+.closing{
+  position:relative;min-height:700px!important;display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle,rgba(104,181,255,.28),transparent 45%)
+}
+.closing .wrap{
+  position:relative;z-index:4;padding:55px;
+  border:1px solid rgba(225,250,255,.7);background:rgba(10,31,52,.7);
+  box-shadow:12px 15px 0 rgba(0,0,0,.35);backdrop-filter:blur(14px);transform:rotate(-1.2deg)
+}
+.closing h2{font-family:'Space Grotesk'!important;text-shadow:5px 6px rgba(0,0,0,.32)}
+.closing h2 span{-webkit-text-stroke:2px #bcecff!important}.closing h2 b{color:#d9c8ff!important}
+.closing p{color:#bcd7e7!important}
+
+.footer{
+  position:relative;z-index:20;margin:0 0 34px!important;padding:35px 0 20px!important;
+  background:linear-gradient(180deg,rgba(10,30,50,.92),rgba(3,15,27,.98));
+  border-top:1px solid #dff8ff!important
+}
+.footer .purple-line{background:linear-gradient(90deg,#54c9ff,#c9aaff,#ff6580)!important}
+.footer-main>div,.ecosystem,.footer-bottom{
+  position:relative;z-index:2
+}
+.footer h3{font-family:'Space Grotesk';font-size:30px}
+.footer p,.footer a{color:#a9c8da!important}
+.ecosystem{
+  padding:20px!important;border:1px solid rgba(220,247,255,.5);
+  background:rgba(70,135,181,.18);transform:rotate(.6deg)
+}
+.ecosystem-link{
+  background:linear-gradient(#dff8ff,#78acd0)!important;color:#08233c!important;
+  border-color:#dff8ff!important;box-shadow:4px 5px 0 rgba(0,0,0,.22)
+}
+.footer-bottom{color:#8aa9bd!important}
+
+body:before{
+  opacity:.10!important;mix-blend-mode:screen;
+  background-image:
+   linear-gradient(90deg,transparent 49%,rgba(118,211,255,.12) 50%,transparent 51%),
+   repeating-linear-gradient(0deg,rgba(255,255,255,.03) 0 1px,transparent 1px 5px)!important;
+}
+body:after{font-size:9px}
+
+@media(max-width:800px){
+  body{padding-bottom:34px}
+  body:after{height:31px;font-size:8px;padding:0 7px}
+  .topbar{height:45px!important}
+  .logo{font-size:11px}.nav{display:none}.live{font-size:7px}
+  #tensoramax-agent-status{top:54px!important;left:7px!important;max-width:62%;overflow:hidden}
+  #seasonal-environment{top:54px!important;right:7px!important}
+  main:before{top:64px;left:2%;font-size:7px}
+  .hero{min-height:850px!important;padding:125px 0 60px!important}
+  .hero>div:first-child{width:96%;padding:25px 22px 28px;transform:rotate(-1.8deg)}
+  .hero>div:first-child:before{margin:-12px -12px 22px;font-size:8px}
+  .hero h1{font-size:clamp(58px,18vw,108px)!important}
+  .hero-side{position:absolute;right:2%;top:590px;width:76%;padding:17px!important;transform:rotate(2.5deg)}
+  .hero-side:before{margin:-17px -17px 15px}
+  section{padding:70px 0!important}
+  .section-top{margin-left:1%!important;max-width:94%;padding:11px 14px!important}
+  .section-top h2{font-size:48px!important}
+  .projects{min-height:1650px}
+  .project{width:88%!important;min-height:310px!important}
+  .project:nth-child(1){left:1%;top:20px;min-height:470px!important}
+  .project:nth-child(2){right:0;top:360px}
+  .project:nth-child(3){left:5%;top:700px}
+  .project:nth-child(4){right:2%;top:1035px}
+  .project:nth-child(5){left:1%;top:1360px}
+  .resource-core{margin:0 2%;transform:rotate(.8deg)}
+  .resource-grid{display:block}.resource-card{margin-bottom:12px}
+  #research .research-grid{min-height:1050px}
+  .research-card{width:90%;min-height:420px!important}
+  .research-card:nth-child(1){left:1%;top:20px}
+  .research-card:nth-child(2){right:0;top:540px}
+  #principles .principles{min-height:900px}
+  .principle{width:78%!important}
+  .principle:nth-child(1){left:0;top:10px}.principle:nth-child(2){left:20%;top:225px}
+  .principle:nth-child(3){right:0;top:450px}.principle:nth-child(4){left:10%;top:675px}
+  #archive .archive{min-height:820px}
+  .archive-row{width:88%!important}
+  .archive-row:nth-child(1){left:0;top:20px}.archive-row:nth-child(2){right:0;top:210px}
+  .archive-row:nth-child(3){left:4%;top:405px}.archive-row:nth-child(4){right:0;top:600px}
+  .closing{min-height:560px!important}
+  .closing .wrap{padding:32px 22px}
+  .closing h2{font-size:20vw!important}
+  .footer-main{grid-template-columns:1fr 1fr!important}
+  .ecosystem-links{grid-template-columns:1fr 1fr!important}
+}
+@media(prefers-reduced-motion:reduce){
+  .project,.research-card,.principle,.archive-row,.hero>div:first-child,.hero-side,.resource-core,.section-top,.closing .wrap{transform:none!important}
+}
+</style>
+
 <style id="tensoramax-seasonal-css">
 /* TENSORA_SEASONAL_ENVIRONMENT */
 #seasonal-environment{position:fixed;top:88px;right:28px;z-index:45;display:flex;align-items:center;gap:10px;padding:9px 11px;border:1px solid rgba(255,255,255,.12);background:rgba(5,5,5,.62);backdrop-filter:blur(14px);font:9px 'DM Mono',monospace;letter-spacing:.12em;text-transform:uppercase;color:#777;transition:border-color .25s,opacity .25s}
