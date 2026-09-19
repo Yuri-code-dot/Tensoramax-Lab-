@@ -28,6 +28,17 @@
 @media(max-width:800px){#seasonal-environment{top:74px;right:14px;padding:8px 9px;font-size:8px}.season-snowflake{color:rgba(255,255,255,.62)}}
 @media(prefers-reduced-motion:reduce){#seasonal-snow{display:none}}
 </style>
+<style id="tensoramax-agent-status-css">
+/* TENSORA_AGENT_STATUS */
+#tensoramax-agent-status{position:fixed;top:88px;left:28px;z-index:45;display:flex;align-items:center;gap:8px;color:#777;font:9px 'DM Mono',monospace;letter-spacing:.11em;text-transform:uppercase;white-space:nowrap;pointer-events:none;mix-blend-mode:screen}
+#tensoramax-agent-status .agent-dot{width:6px;height:6px;border-radius:50%;background:var(--purple);box-shadow:0 0 14px var(--purple);animation:tma-pulse 2s ease-in-out infinite}
+#tensoramax-agent-status .agent-count{color:#eee}
+#tensoramax-agent-status .agent-detail{color:#666}
+#tensoramax-agent-status .agent-tsc{color:var(--purple)}
+@keyframes tma-pulse{50%{opacity:.45;transform:scale(.78)}}
+@media(max-width:800px){#tensoramax-agent-status{top:82px;left:14px;font-size:8px;gap:6px}#tensoramax-agent-status .agent-detail{display:none}}
+@media(prefers-reduced-motion:reduce){#tensoramax-agent-status .agent-dot{animation:none}}
+</style>
 </head>
 <body>
 <header class="topbar wrap">
@@ -41,6 +52,14 @@
   <span>EFFECT</span><button id="season-effect-toggle" type="button" aria-pressed="true"><span class="effect-state">ON</span></button>
 </div>
 <div id="seasonal-snow" aria-hidden="true"></div>
+<div id="tensoramax-agent-status" aria-label="Tensoramax Lab agent system status">
+  <span class="agent-dot" aria-hidden="true"></span>
+  <span class="agent-count">100 AGENTS</span>
+  <span class="agent-detail">· <span id="tma-working">50</span> WORKING</span>
+  <span class="agent-detail">· <span id="tma-lab">10</span> LAB</span>
+  <span class="agent-detail">· <span id="tma-idle">40</span> IDLE</span>
+  <span class="agent-tsc" id="tma-tsc">· TSC</span>
+</div>
 <main id="top">
 <section class="hero wrap">
   <div>
@@ -238,6 +257,37 @@
     requestAnimationFrame(frame);
   }
   render(); requestAnimationFrame(frame);
+})();
+</script>
+<script id="tensoramax-agent-status-js">
+(()=>{
+  const root=document.getElementById('tensoramax-agent-status');
+  const working=document.getElementById('tma-working');
+  const lab=document.getElementById('tma-lab');
+  const idle=document.getElementById('tma-idle');
+  const tsc=document.getElementById('tma-tsc');
+  if(!root||!working||!lab||!idle||!tsc)return;
+
+  // Interface simulation only. No real agents are being represented yet.
+  const states=[
+    ['WEB RESEARCH','TSC'],['LAB WORK','TSC'],['CODE','TSC'],
+    ['DATA','TSC'],['ANALYSIS','TSC'],['IDLE','TSC']
+  ];
+  let previous={working:50,lab:10,idle:40};
+  const clamp=(n,min,max)=>Math.max(min,Math.min(max,n));
+  const next=(value,spread)=>value+Math.floor((Math.random()*(spread*2+1))-spread);
+  function render(){
+    let w=clamp(next(previous.working,6),38,60);
+    let l=clamp(next(previous.lab,3),6,16);
+    let i=100-w-l;
+    if(i<24){i=24;w=100-l-i}
+    previous={working:w,lab:l,idle:i};
+    working.textContent=w;lab.textContent=l;idle.textContent=i;
+    const state=states[Math.floor(Math.random()*states.length)];
+    tsc.textContent=`· ${state[1]}`;
+  }
+  render();
+  window.setInterval(render,10000);
 })();
 </script>
 </body>
